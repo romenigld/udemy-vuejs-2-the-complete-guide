@@ -13,6 +13,9 @@
       <p>
         {{ counter }}
       </p>
+      <p v-on:mousemove="updateCoordinates">
+        Coordinates: {{ x }} / {{ y }}
+      </p>
     </div>
 
     <script>
@@ -24,6 +27,10 @@
         methods: {
         	increase: function() {
           	this.counter++;
+          },
+          updateCoordinates: function(event) {
+          	this.x = event.clientX;
+            this.y = event.clientY;
           }
         }
       });
